@@ -32,7 +32,8 @@ public class AccountTriggerHandlerTest {
         try {
             delete acc1;
             System.assert(false, 'Account deletion should have been prevented due to active contract.');
-        } catch (DmlException e) {
+        } 
+        catch (DmlException e) {
             System.assertEquals(StatusCode.FIELD_CUSTOM_VALIDATION_EXCEPTION, e.getDmlType(0));
             System.assert(e.getMessage().contains('Cannot delete an account whose Contract or Order is in Activated Status'), 'Expected error message not found');
         }
